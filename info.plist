@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>life.xiaoyuan.intellij-projects</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>130D6064-96AC-450B-B614-B7BA75C71730</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>613EF2BE-F1D1-4BAC-88AC-E5E1F1F3491E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>37C48A61-30BA-4AC5-AF7A-770961F4571C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>66062352-BCA8-423E-995D-CDB494D20040</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>66062352-BCA8-423E-995D-CDB494D20040</key>
+		<array/>
+		<key>71AF9669-B499-45D8-ADA1-2E9583102119</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BD4B4A4F-4F39-41DA-B1F3-77A9A159D345</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>DD7C7229-2F83-4005-BE2D-C830CA239B6B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>48799554-6B73-4EB0-8DD0-E1968048197D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Youmoo</string>
+	<key>description</key>
+	<string>Search&amp;Open Intellij Projects</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Intellij Projects</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>q={query}
+
+if [ "$q" == "__reindex__" ]; then
+	./reindex.sh
+	exit 0
+fi
+app=`find /Applications -name 'IntelliJ*.app' -maxdepth 1|sort|tail -1`
+
+# app=${app// /\\ }
+open -a "${app}" {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>66062352-BCA8-423E-995D-CDB494D20040</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>.intellij</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>./intellij-projects.js {query}</string>
+				<key>subtext</key>
+				<string>Press &lt;Enter&gt; to Open</string>
+				<key>title</key>
+				<string>List Intellij Projects</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>37C48A61-30BA-4AC5-AF7A-770961F4571C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>.reindex-intellij</string>
+				<key>text</key>
+				<string>Reindex intellij projects</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>130D6064-96AC-450B-B614-B7BA75C71730</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./reindex.sh</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>613EF2BE-F1D1-4BAC-88AC-E5E1F1F3491E</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>app=`find /Applications -name 'WebStorm*.app' -maxdepth 1|sort|tail -1`
+
+# app=${app// /\\ }
+open -a "${app}" {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>BD4B4A4F-4F39-41DA-B1F3-77A9A159D345</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>.wstorm</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>./intellij-projects.js {query}</string>
+				<key>subtext</key>
+				<string>Press &lt;Enter&gt; to Open</string>
+				<key>title</key>
+				<string>List WebStorm Projects</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>71AF9669-B499-45D8-ADA1-2E9583102119</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>.pycharm</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>./intellij-projects.js {query}</string>
+				<key>subtext</key>
+				<string>Press &lt;Enter&gt; to Open</string>
+				<key>title</key>
+				<string>List PyCharm Projects</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>DD7C7229-2F83-4005-BE2D-C830CA239B6B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>app=`find /Applications -name 'PyCharm*.app' -maxdepth 1|sort|tail -1`
+
+# app=${app// /\\ }
+open -a "${app}" {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>48799554-6B73-4EB0-8DD0-E1968048197D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>130D6064-96AC-450B-B614-B7BA75C71730</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>37C48A61-30BA-4AC5-AF7A-770961F4571C</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>48799554-6B73-4EB0-8DD0-E1968048197D</key>
+		<dict>
+			<key>ypos</key>
+			<real>370</real>
+		</dict>
+		<key>613EF2BE-F1D1-4BAC-88AC-E5E1F1F3491E</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>66062352-BCA8-423E-995D-CDB494D20040</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>71AF9669-B499-45D8-ADA1-2E9583102119</key>
+		<dict>
+			<key>ypos</key>
+			<real>250</real>
+		</dict>
+		<key>BD4B4A4F-4F39-41DA-B1F3-77A9A159D345</key>
+		<dict>
+			<key>ypos</key>
+			<real>250</real>
+		</dict>
+		<key>DD7C7229-2F83-4005-BE2D-C830CA239B6B</key>
+		<dict>
+			<key>ypos</key>
+			<real>370</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://xiaoyunal.life</string>
+</dict>
+</plist>
