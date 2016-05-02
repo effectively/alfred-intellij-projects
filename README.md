@@ -1,6 +1,6 @@
 ## Search&Open Intellij Projects within Alfred
 
-![](intellij-projects.cache.gif)
+![](intellij-projects.gif)
 
 ### Requirements
 
