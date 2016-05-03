@@ -16,6 +16,7 @@
 - Type `.wstorm` to open **WebStorm** projects
 - Type `.pycharm` to open **PyCharm** projects
 - Type `.reindex-intellij` to reindex projects
+- Type `.reindex-intellij f` to force to reindex projects
 
 ### Note
 

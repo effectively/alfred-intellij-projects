@@ -4,10 +4,11 @@ const fs = require('fs');
 const os = require('os');
 
 const keyword = process.argv[2];
+const cache_path = process.env['alfred_workflow_cache'];
 const filter = keyword ? file => new RegExp(keyword).test(file.title) : file => !!file.title;
 
-const cache_lock = 'cache.lock';
-const projects_path = 'intellij-projects.cache';
+const cache_lock = `${cache_path}/cache.lock`;
+const projects_path = `${cache_path}/intellij-projects.cache`;
 
 const error = [
     {

@@ -73,16 +73,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>q={query}
-
-if [ "$q" == "__reindex__" ]; then
-	./reindex.sh
-	exit 0
-fi
-app=`find /Applications -name 'IntelliJ*.app' -maxdepth 1|sort|tail -1`
-
-# app=${app// /\\ }
-open -a "${app}" {query}</string>
+				<string>./launch.sh "IntelliJ*.app" "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -131,6 +122,25 @@ open -a "${app}" {query}</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./reindex.sh {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>613EF2BE-F1D1-4BAC-88AC-E5E1F1F3491E</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
@@ -155,29 +165,7 @@ open -a "${app}" {query}</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./reindex.sh</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>613EF2BE-F1D1-4BAC-88AC-E5E1F1F3491E</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>app=`find /Applications -name 'WebStorm*.app' -maxdepth 1|sort|tail -1`
-
-# app=${app// /\\ }
-open -a "${app}" {query}</string>
+				<string>./launch.sh "WebStorm*.app" "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
@@ -266,10 +254,7 @@ open -a "${app}" {query}</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>app=`find /Applications -name 'PyCharm*.app' -maxdepth 1|sort|tail -1`
-
-# app=${app// /\\ }
-open -a "${app}" {query}</string>
+				<string>./launch.sh "PyCharm*.app" "{query}"</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>
